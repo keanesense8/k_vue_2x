@@ -30,6 +30,18 @@ export default new Router({
       name: 'selfplugin',
       component: () => import( './views/selfplugin.vue')
     }
+    ,
+    {
+      path: '/reactivebinddata',
+      name: 'reactivebinddata',
+      component: () => import( './views/ReactiveBindData.vue')
+    }
+    ,
+    {
+      path: '/vuex',
+      name: 'vuex',
+      component: () => import( './views/vuex.vue')
+    }
 
   ]
 })

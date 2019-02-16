@@ -49,20 +49,19 @@ export default {
           ]
         },
         {
-          action: 'restaurant',
-          title: 'Dining',
+          action: 'local_activity',
+          title: 'Reactive Bind Data',
           active: true,
           items: [
-            { title: 'Breakfast & brunch' },
-            { title: 'New American' },
-            { title: 'Sushi' }
+            { title: 'reactivebinddata' }
           ]
         },
         {
-          action: 'school',
-          title: 'Education',
+          action: 'local_activity',
+          title: 'Vuex',
+           active: true,
           items: [
-            { title: 'List Item' }
+            { title: 'vuex' }
           ]
         },
         {

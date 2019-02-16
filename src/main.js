@@ -9,6 +9,9 @@ Vue.config.productionTip = false
 
 Vue.use(mathplugin)
 
+Vue.filter('lowercase' , (key) => {return key.toLowerCase()})
+Vue.filter('doublestr' , (key) => {return key + ' ' + key})
+
 new Vue({
   router,
   store,
