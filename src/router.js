@@ -35,13 +35,13 @@ export default new Router({
       path: '/reactivebinddata',
       name: 'reactivebinddata',
       component: () => import( './views/ReactiveBindData.vue')
-    }
-    ,
+    },
     {
-      path: '/vuex',
-      name: 'vuex',
-      component: () => import( './views/vuex.vue')
+      path: '/viewstate',
+      name: 'viewstate',
+      component: () => import( './views/ViewState.vue')
     }
+   
 
   ]
 })

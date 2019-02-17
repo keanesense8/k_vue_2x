@@ -61,7 +61,7 @@ export default {
           title: 'Vuex',
            active: true,
           items: [
-            { title: 'vuex' }
+            { title: 'viewstate' }
           ]
         },
         {
