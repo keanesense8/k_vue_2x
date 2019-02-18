@@ -90,6 +90,7 @@ export default {
         list[0].items = this.items
         this.$store.commit(MUTATION_TYPES.POPULATE_SHOPPING_LISTS , list)
         this.$store.dispatch("updateList" , list[0]);
+         
       }
     },
     ...mapActions(['populateList'])

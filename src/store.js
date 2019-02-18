@@ -40,7 +40,8 @@ export default new Vuex.Store({
         console.log('action : ' + msg)
         commit(MUTATION_TYPES.INCREMENT_COUNTER)
       },
-      work({commit} ){
+      work({commit , state} ){
+        console.log("action state:" + state.shop_list[0].title)
         console.log('working' + Math.floor(Math.random() * Math.floor(10)))
       },
       /**
@@ -55,6 +56,10 @@ export default new Vuex.Store({
         api.updateShoppingList(data).then(
           res => console.log('update api : ' + res.body)
         )
+      },
+      showstate: ( {commit , state} ) => {
+        console.log('action state : ' + state.msg)
+        
       }
 
   },
