@@ -1,0 +1,35 @@
+{
+  "lists": [
+    {
+      "title": "shoplist1",
+      "items": [
+        {
+          "text": "game",
+          "checked": true
+        },
+        {
+          "text": "book",
+          "checked": false
+        },
+        {
+          "text": "game2",
+          "checked": false
+        },
+        {
+          "text": "game3",
+          "checked": false
+        },
+        {
+          "text": "game4",
+          "checked": false
+        }
+      ],
+      "id": 1
+    },
+    {
+      "title": "shoplist2",
+      "items": [],
+      "id": 3
+    }
+  ]
+}

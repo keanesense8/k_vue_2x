@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>Change Title</p>
-    <input v-model="title" placeholder="change title" type="text" class="form-control">
+    <input :value="title" placeholder="change title" type="text" class="form-control">
     <v-divider></v-divider>
     <div class="input-group">
       <input
@@ -45,32 +45,70 @@
 import aaa from '@/components/vuejslearn/Acomponent'
 import bbb from '@/components/vuejslearn/Bcomponent'
 
+import {mapGetters , mapActions} from 'vuex'
+
+import { MUTATION_TYPES } from "@/mutation_type";
+
 export default {
   components:{
     aaa,
     bbb
   },
+  computed:{
+    //  ...mapGetters({ items: "getLists" })
+    items(){
+      let list = this.$store.getters.getLists
+      if((JSON.stringify(list) === '[]'))
+        return []
+      
+      return list[0].items
+    },
+    title(){
+      let list = this.$store.getters.getLists
+      
+      console.log("title :" + (JSON.stringify(list) === '[]'))
+      
+      if((JSON.stringify(list) === '[]'))
+        return 'title'
+      console.log('get value from list ' + list[0].title)
+      return list[0].title
+ 
+    }
+  },
   methods: {
     addItem() {
       let text = this.newItem;
       if (text) {
+
         this.items.push({
           text: text,
           checked: false
         });
         this.newItem = "";
+        let list = this.$store.getters.getLists
+        // console.log('list:' + list)
+        list[0].items = this.items
+        this.$store.commit(MUTATION_TYPES.POPULATE_SHOPPING_LISTS , list)
+        this.$store.dispatch("updateList" , list[0]);
       }
-    }
+    },
+    ...mapActions(['populateList'])
+  },
+  mounted() {
+    /** 将db.json数据导入state.shop_list */
+    this.populateList()
+    console.log('mounted')
+    console.log(this.$store.getters.getLists)
   },
   data: () => {
     return {
-      items: [
+      items2: [
         { text: "Bananas", checked: true },
         { text: "Apples", checked: false },
         { text: "Orange", checked: true },
         { text: "Melon", checked: false }
       ],
-      title: "My Shopping List",
+      title2: "My Shopping List",
       newItem: "",
       abcomponentvalue:"Test"
     };

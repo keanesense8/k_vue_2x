@@ -5,9 +5,11 @@ import router from './router'
 import store from './store'
 import mathplugin from './plugins/math'
 
+
 Vue.config.productionTip = false
 
 Vue.use(mathplugin)
+
 
 Vue.filter('lowercase' , (key) => {return key.toLowerCase()})
 Vue.filter('doublestr' , (key) => {return key + ' ' + key})

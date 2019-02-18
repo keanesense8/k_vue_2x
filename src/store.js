@@ -2,13 +2,15 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import getters from './getters'
 import {MUTATION_TYPES} from './mutation_type'
+import api from './api'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     msg: "vuex_state_value",
-    count: 0
+    count: 0,
+    shop_list: []
   },
   mutations: {
     [MUTATION_TYPES.CHANGE_MSG](state, msg){
@@ -16,6 +18,9 @@ export default new Vuex.Store({
     },
     [MUTATION_TYPES.INCREMENT_COUNTER](state){
       state.count++
+    },
+    [MUTATION_TYPES.POPULATE_SHOPPING_LISTS](state , list){
+      state.shop_list = list
     }
   },
   /**
@@ -37,7 +42,21 @@ export default new Vuex.Store({
       },
       work({commit} ){
         console.log('working' + Math.floor(Math.random() * Math.floor(10)))
+      },
+      /**
+       * save the api data to store.state
+       */
+      populateList: ({commit}) => {
+          api.fetchShoppingLists().then(
+            res => {commit(MUTATION_TYPES.POPULATE_SHOPPING_LISTS , res.data)})
+      },
+      updateList: ( {commit} ,data ) => {
+        console.log('action : ' + data.id)
+        api.updateShoppingList(data).then(
+          res => console.log('update api : ' + res.body)
+        )
       }
+
   },
   getters
 })

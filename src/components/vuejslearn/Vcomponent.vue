@@ -13,7 +13,7 @@ export default {
             // console.log(this.$store.state.msg)
             // console.log(e.target.value)
             //change state in store
-
+                    
             this.$store.commit(MUTATION_TYPES.CHANGE_MSG , e.target.value)
         }
     }

@@ -1,4 +1,5 @@
 export const MUTATION_TYPES = {
   INCREMENT_COUNTER: "incrementCounter",
-  CHANGE_MSG: "changeMsg"
+  CHANGE_MSG: "changeMsg",
+  POPULATE_SHOPPING_LISTS: "POPULATE_SHOPPING_LISTS"
 };
