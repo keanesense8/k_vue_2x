@@ -40,6 +40,25 @@ export default new Router({
       path: '/viewstate',
       name: 'viewstate',
       component: () => import( './views/ViewState.vue')
+    },
+    {
+      path: '/eventtest',
+      name: 'eventtest',
+      component: () => import( './views/EventTest.vue')
+    },
+    {
+      path: '/FormHandler',
+      name: 'FormHandler',
+      component: () => import( './views/FormHandler.vue')
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: () => import( './views/Login.vue')
+    },{
+      path:'*',
+      name: 'NotFound',
+      component: () => import('./components/NotFound.vue')
     }
    
 

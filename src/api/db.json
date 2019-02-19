@@ -1,4 +1,7 @@
 {
+  "shopLists":[
+     {"id" : 1 , "name" : "test"}
+  ],
   "lists": [
     {
       "title": "shoplist1",
@@ -21,6 +24,10 @@
         },
         {
           "text": "game4",
+          "checked": false
+        },
+        {
+          "text": "game5",
           "checked": false
         }
       ],

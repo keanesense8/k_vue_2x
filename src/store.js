@@ -8,6 +8,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    status: 0,
     msg: "vuex_state_value",
     count: 0,
     shop_list: []
@@ -21,6 +22,12 @@ export default new Vuex.Store({
     },
     [MUTATION_TYPES.POPULATE_SHOPPING_LISTS](state , list){
       state.shop_list = list
+    },
+    [MUTATION_TYPES.USER_LOGIN](state){
+      state.status = 1
+    },
+    [MUTATION_TYPES.USER_LOGOUT](state){
+      state.status = 0
     }
   },
   /**
@@ -36,6 +43,21 @@ export default new Vuex.Store({
       } }
         */
   actions: {
+      login({commit , state} , username){
+        console.log("login:" + username)
+        /**
+         * do some real login here , use the api
+         */
+        commit(MUTATION_TYPES.USER_LOGIN)
+      },
+      logout({commit} ){
+        console.log("logout")
+        commit(MUTATION_TYPES.USER_LOGOUT)
+      },
+      logined({state}){
+        console.log("logined:" + (state.status === 1))
+        return state.status === 1
+      },
       log({commit} , msg){
         console.log('action : ' + msg)
         commit(MUTATION_TYPES.INCREMENT_COUNTER)
