@@ -113,6 +113,12 @@ export default {
       newItem: "",
       abcomponentvalue:"Test"
     };
+  },
+  watch:{
+    /**simple use watch */
+    abcomponentvalue: function(oldVal, newVal){
+       console.log("watch:" + oldVal + " " + newVal)
+    }
   }
 };
 </script>

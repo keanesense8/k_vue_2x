@@ -1,6 +1,7 @@
 <template>
   <v-app id="sandbox" :dark="dark">
     <v-navigation-drawer
+      v-if="$route.path !== '/Login' && $route.path !== '/404' &&  $route.path !== '/loading'"
       v-model="primaryDrawer.model"
       :permanent="primaryDrawer.type === 'permanent'"
       :temporary="primaryDrawer.type === 'temporary'"
@@ -13,7 +14,7 @@
     >
     <side></side>
     </v-navigation-drawer>
-    <v-toolbar :clipped-left="primaryDrawer.clipped" app absolute>
+    <v-toolbar v-if="$route.path !== '/Login' && $route.path !== '/404' &&  $route.path !== '/loading'" :clipped-left="primaryDrawer.clipped" app absolute>
       <v-toolbar-side-icon
         v-if="primaryDrawer.type !== 'permanent'"
         @click.stop="primaryDrawer.model = !primaryDrawer.model"
@@ -89,6 +90,10 @@ export default {
       footer: {
         inset: false
       }
-    })
+    }),
+    beforeRouteEnter (to, from, next) {
+      console.log(to + ' ' + from)
+      next()
+    }
   }
 </script>

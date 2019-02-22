@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 
 Vue.use(Router)
 
+// const router = new VueRouter({
 export default new Router({
   routes: [
     {
@@ -57,10 +58,23 @@ export default new Router({
       component: () => import( './views/Login.vue')
     },{
       path:'*',
-      name: 'NotFound',
-      component: () => import('./components/NotFound.vue')
+      name: '404NotFound',
+      redirect: "/404"
+      // component: () => import('./components/NotFound')
+    },{
+      path:'/404',
+      name: '404',
+      component: () => import('./components/NotFound')
+    },{
+      path:'/loading',
+      name: 'loading',
+      component: () => import('./components/Loading')
     }
    
 
   ]
 })
+
+
+
+// export default router

@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import getters from './getters'
 import {MUTATION_TYPES} from './mutation_type'
 import api from './api'
+import router from './router'
 
 Vue.use(Vuex)
 
@@ -49,6 +50,19 @@ export default new Vuex.Store({
          * do some real login here , use the api
          */
         commit(MUTATION_TYPES.USER_LOGIN)
+        // let promise = new Promise(
+        //   (resolve , reject) => {
+        //     console.log("router:" + router.push('/loading'))
+        //     setTimeout(() => resolve('done') , 3000)
+        //     console.log('promise')
+        // }).then(() => {
+         
+        //   console.log('done!')
+        //   console.log("router:" + router.push('/'))
+        // })
+        // console.log("router:" + router.push('/'))
+        router.push('/')
+        
       },
       logout({commit} ){
         console.log("logout")
